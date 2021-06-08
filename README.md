@@ -1,2 +1,2 @@
 # minerva-maure
-Proyecto Front End React
+Proyecto Front-End creado en React Para CODERHOUSE
