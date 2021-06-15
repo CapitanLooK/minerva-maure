@@ -1,9 +1,9 @@
-import React from 'react';
-import '../../index.css';
-import logo from '../../img/logo.jpeg';
+import React from 'react'
+import '../../index.css'
+import logo from '../../img/logo.jpeg'
 import search from '../../svg/search.svg'
-import cart from '../../svg/shopping-cart.svg'
 import user from '../../svg/user.svg'
+import CartWidget from '../cartwidget/CartWidget'
 
 export const NavBar = () => {
     return(
@@ -25,7 +25,7 @@ export const NavBar = () => {
                             <div className="ml-4 flex items-center space-x-7 absolute right-20">
                                 <button><img className="h-6 w-6" src={search} alt="" /></button>
                                 <button><img className="h-6 w-6" src={user} alt="" /></button>
-                                <button><img className="h-6 w-6" src={cart} alt="" /></button>
+                                <CartWidget />
                             </div>
                         </div>
                     </div>

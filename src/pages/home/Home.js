@@ -1,12 +1,15 @@
 import React from 'react';
-import './Home.css';
 import '../../index.css'
-import NavBar from '../../components/navbar/NavBar'
+import {NavBar} from '../../components/navbar/NavBar'
+import {ItemListContainer} from '../../components/itemlistcontainer/ItemListContainer'
 
 function Home() {
+  const user = "Hola usuario!";
+
   return (
     <div className="Home">
       <NavBar />
+      <ItemListContainer greeting={user} />
     </div>
   );
 }
