@@ -8,8 +8,8 @@ import CartWidget from '../cartwidget/CartWidget'
 export const NavBar = () => {
     return(
         <div>
-            <nav className="bg-black">
-                <div className="">
+            <nav className="flex bg-black">
+                <div>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
                             <div className="flex-shrink-0 ml-5">
