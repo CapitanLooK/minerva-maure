@@ -2,27 +2,13 @@ import React from 'react';
 import '../../index.css';
 import { Item } from '../item/Item'
 
-export const ItemList = () => {
+export const ItemList = ({items}) => {
     return(
-    <div>
-        <div className="flex flex-wrap overflow-hidden">
-            <div className="w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
-                <Item />
+    <>
+            <div className="flex-1 flex-wrap flex-row">
+                {items.map(item => <Item item={item} key={item.id}/>)}
             </div>
-
-            <div className="w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
-                <Item />
-            </div>
-
-            <div className="w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
-                <Item />
-            </div>
-
-            <div className="w-full overflow-hidden sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4">
-                <Item />
-            </div>
-        </div>
-    </div>
+    </>
     )
 }
 
