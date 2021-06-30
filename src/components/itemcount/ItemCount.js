@@ -30,7 +30,7 @@ export const ItemCount = ({stock, initial, onAdd}) => {
             <button className="p-2 border-2 border-black rounded-md" onClick={add}>+</button>
             <span className="p-1 ml-5">{counter}</span>
             <button className="p-2 ml-5 border-2 border-black rounded-md"onClick={subtract}>-</button>
-            <button className="p-2 border-2 border-black rounded-md ml-2"disabled={stock === 0} onClick={onAdd}>Agregar</button>
+            <button className="p-2 border-2 border-black rounded-md ml-2" disabled={stock === 0} onClick={onAdd}>Agregar</button>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../../index.css';
-import { ItemCount } from '../itemcount/ItemCount';
 import { ItemList } from '../itemlist/ItemList'
+import {ItemDetailContainer} from '../itemdetailcontainer/ItemDetailContainer'
 export const ItemListContainer = (props) => {
 
     const [catalog, setCatalog] = useState([])
@@ -39,22 +39,20 @@ export const ItemListContainer = (props) => {
         })
 
         promise.then((response) =>{
-            console.log(response)
             setCatalog(response)
         })
     
-    }, [])
+    })
 
 
 
     return(
         <>
             <div>
-                <ItemList items={catalog}/>
+            <ItemList items={catalog}/>
             </div>
             <div>
-                <h2 className="text-center mt-5">{props.greeting} la lista esta vacia</h2>
-                <ItemCount initial={1} stock={9} onAdd={() => {console.log('Items agregados al carrito')}}/>
+                <ItemDetailContainer />
             </div>
         </>
     )
