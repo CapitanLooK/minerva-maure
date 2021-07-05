@@ -1,23 +1,25 @@
 import React from 'react';
 import '../../index.css';
 import {ItemCount} from '../itemcount/ItemCount'
+import {Link} from 'react-router-dom'
 
 export const ItemDetail = ({item}) => {
+    const {id, titulo, precio, pictureURL, descripcion} = item
     return(
 
-        <>
+        <Link to={`item/${id}`}>
 <div className="flex flex-wrap overflow-hidden">
 
 <div className="w-1/2 overflow-hidden">
-        <img src={item.pictureURL} alt="producto" />
+        <img src={pictureURL} alt="producto" />
 </div>
 
 <div className="flex box-content static leading-8">
     <div className="block border-box leading-8 static">
-        <span>{item.titulo}</span>
+        <span>{titulo}</span>
     </div>
     <div className="block border-box leading-8 static">
-        <span>{item.precio}</span>
+        <span>{precio}</span>
     </div>
     <div className="block border-box leading-8 static">
         <input type="number" placeholder="Medida 1" />
@@ -30,13 +32,11 @@ export const ItemDetail = ({item}) => {
     <ItemCount initial={1} stock={9} onAdd={() => {console.log('Items agregados al carrito')}}/>
     </div>
     <div className="block border-box leading-8 static">
-        <span>{item.descripcion}</span>
+        <span>{descripcion}</span>
     </div>
 </div>
 
 </div>
-        </>
+        </Link>
     )
 }
-
-export default ItemDetail

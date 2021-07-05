@@ -1,61 +1,43 @@
 import { useEffect, useState } from 'react';
 import '../../index.css';
 import { ItemList } from '../itemlist/ItemList'
-import {ItemDetailContainer} from '../itemdetailcontainer/ItemDetailContainer'
-export const ItemListContainer = (props) => {
+import { useParams } from 'react-router-dom';
+import ITEMS from '../../data/items.json'
 
-    const [catalog, setCatalog] = useState([])
-    const products = [
-        {
-            id: 1,
-            titulo: 'Arnes 1',
-            precio: 550,
-            descripcion: 'Descricion del producto',
-            pictureURL: 'https://i.ibb.co/y6s06DR/Screenshot-20210622-214105.jpg'
-        },
-        {
-            id: 2,
-            titulo: 'Arnes 2',
-            precio: 500,
-            descripcion: 'Descricion del producto 2',
-            pictureURL: 'https://i.ibb.co/QNzZFG1/In-Shot-20200831-000149352.jpg'
-            },
-        {
-            id: 3,
-            titulo: 'Arnes 3',
-            precio: 300,
-            descripcion: 'Descricion del producto 3',
-            pictureURL: 'https://i.ibb.co/QNzZFG1/In-Shot-20200831-000149352.jpg'
-        },
+export const ItemListContainer = () => {
+    const {id} = useParams()
+    const [items, setItems] = useState([])
 
-    ]
     useEffect(() =>{
+        const getItems = () => {
+            return id ? ITEMS.filter((item) => item.categoryId === id) : ITEMS
+        }
+
+        
+        const items = getItems()
+        setItems(items)
+
         const promise = new Promise ((response, reject) => {
 
             setTimeout(() => {
-                response(products)
+                response(items)
             }, 2000)
     
         })
 
         promise.then((response) =>{
-            setCatalog(response)
+            setItems(response)
         })
     
-    })
+    }, [id])
 
 
 
     return(
         <>
             <div>
-            <ItemList items={catalog}/>
-            </div>
-            <div>
-                <ItemDetailContainer />
+            <ItemList items={items}/>
             </div>
         </>
     )
 }
-
-export default ItemListContainer

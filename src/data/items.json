@@ -1,0 +1,50 @@
+    [
+        {
+        "id": 1,
+        "titulo": "Arnes 1",
+        "precio": 550,
+        "descripcion": "Descricion del producto 1",
+        "pictureURL": "https://i.ibb.co/y6s06DR/Screenshot-20210622-214105.jpg",
+        "categoryId": "arneses"
+    },
+    {
+        "id": 2,
+        "titulo": "Arnes 2",
+        "precio": 500,
+        "descripcion": "Descricion del producto 2",
+        "pictureURL": "https://i.ibb.co/QNzZFG1/In-Shot-20200831-000149352.jpg",
+        "categoryId": "arneses"
+        },
+    {
+        "id": 3,
+        "titulo": "Lenceria 1",
+        "precio": 1000,
+        "descripcion": "Descricion del producto 1",
+        "pictureURL": "https://i.ibb.co/5Mg7JVZ/lenceria1.jpg",
+        "categoryId": "lenceria"
+    },
+    {
+        "id": 4,
+        "titulo": "Lenceria 2",
+        "precio": 1200,
+        "descripcion": "Descricion del producto 2",
+        "pictureURL": "https://i.ibb.co/sH5VWRZ/lecenria2.jpg",
+        "categoryId": "lenceria"
+    },
+    {
+        "id": 5,
+        "titulo": "Ropa 1",
+        "precio": 400,
+        "descripcion": "Descricion del producto 1",
+        "pictureURL": "https://i.ibb.co/VVtsc8x/ropa1.jpg",
+        "categoryId": "ropa"
+    },
+    {
+        "id": 6,
+        "titulo": "accesorio 1",
+        "precio": 200,
+        "descripcion": "Descricion del producto 1",
+        "pictureURL": "https://i.ibb.co/t3q8Dwc/accesorios1.jpg",
+        "categoryId": "accesorios"
+    }
+]

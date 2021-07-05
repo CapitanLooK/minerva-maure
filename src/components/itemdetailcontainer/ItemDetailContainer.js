@@ -1,44 +1,42 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useParams } from 'react';
 import '../../index.css';
 import { ItemDetail } from '../itemdetail/ItemDetail'
+import ITEM from '../../data/items.json'
 
-export const ItemDetailContainer = (props) => {
-
-    const [detail, setDetail] = useState([])
-    const product = [
-        {
-            id: 1,
-            titulo: 'Arnes 1',
-            precio: 550,
-            descripcion: 'Descricion del producto',
-            pictureURL: 'https://i.ibb.co/y6s06DR/Screenshot-20210622-214105.jpg'
-        },
-    ]
+export const ItemDetailContainer = () => {
+    const {id} = useParams()
+    const [item, setItem] = useState([])
 
     useEffect(() =>{
+
+    const getItem = () => {
+        return id ? ITEM.filter((item) => item.id === id) : ITEM
+    }
+
+        const item = getItem()
+        setItem(item)
+
         const promise = new Promise ((response, reject) => {
 
             setTimeout(() => {
-                response(product)
+                response(item)
             }, 2000)
     
         })
 
         promise.then((response) =>{
-            setDetail(response)
+            setItem(response)
         })
     
-    })
+    }, [id])
 
 
 
     return(
         <>
             <div>
-                <ItemDetail item={detail}/>
+                <ItemDetail key={id} item={item}/>
             </div>
         </>
     )
 }
-
-export default ItemDetailContainer
