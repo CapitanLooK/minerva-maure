@@ -1,13 +1,11 @@
 import React from 'react';
 import '../../index.css';
 import {ItemCount} from '../itemcount/ItemCount'
-import {Link} from 'react-router-dom'
 
 export const ItemDetail = ({item}) => {
-    const {id, titulo, precio, pictureURL, descripcion} = item
+    const {titulo, precio, pictureURL, descripcion} = item
     return(
 
-        <Link to={`item/${id}`}>
 <div className="flex flex-wrap overflow-hidden">
 
 <div className="w-1/2 overflow-hidden">
@@ -37,6 +35,5 @@ export const ItemDetail = ({item}) => {
 </div>
 
 </div>
-        </Link>
     )
 }

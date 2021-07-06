@@ -1,7 +1,9 @@
-import { useEffect, useState, useParams } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import '../../index.css';
 import { ItemDetail } from '../itemdetail/ItemDetail'
 import ITEM from '../../data/items.json'
+import LoaderProduct from '../../img/cargandoProducto.gif'
 
 export const ItemDetailContainer = () => {
     const {id} = useParams()
@@ -9,23 +11,22 @@ export const ItemDetailContainer = () => {
 
     useEffect(() =>{
 
-    const getItem = () => {
-        return id ? ITEM.filter((item) => item.id === id) : ITEM
-    }
-
-        const item = getItem()
-        setItem(item)
-
-        const promise = new Promise ((response, reject) => {
+        const promise = new Promise ((resolve, reject) => {
 
             setTimeout(() => {
-                response(item)
+                const getItem = () => {
+                    return id ? ITEM.find((prod) => prod.id == id) : ITEM
+                }
+            
+                    const item = getItem()
+                    setItem(item)
+                resolve(item)
             }, 2000)
     
         })
 
-        promise.then((response) =>{
-            setItem(response)
+        promise.then((resolve) =>{
+            setItem(resolve)
         })
     
     }, [id])
@@ -34,9 +35,7 @@ export const ItemDetailContainer = () => {
 
     return(
         <>
-            <div>
-                <ItemDetail key={id} item={item}/>
-            </div>
+                {item.length === 0 ? <img src={LoaderProduct} className="bg-black w-screen h-screen"/> : <ItemDetail key={id} item={item}/>}
         </>
     )
 }
