@@ -1,10 +1,9 @@
-import React from 'react'
-import {Page} from '../page/Page'
+import { Fragment } from "react"
 
-export const Cart = () =>{
+export const Cart = () => {
     return(
-        <Page>
-            <h1>Cart</h1>
-        </Page>
+        <>
+        <h1>Cart</h1>
+        </>
     )
 }

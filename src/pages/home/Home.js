@@ -1,10 +1,11 @@
 import React from 'react';
 import '../../index.css'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {Page} from '../page/Page'
+import { Page } from '../page/Page'
 import { NotFound } from "../notfound/NotFound";
-import {ItemListContainer} from '../../components/itemlistcontainer/ItemListContainer'
-import {ItemDetailContainer} from '../../components/itemdetailcontainer/ItemDetailContainer'
+import {ItemListContainer } from '../../components/itemlistcontainer/ItemListContainer'
+import { ItemDetailContainer } from '../../components/itemdetailcontainer/ItemDetailContainer'
+import { Cart } from '../cart/Cart';
 
 export const Home = () => {
 
@@ -21,12 +22,17 @@ export const Home = () => {
               <ItemListContainer />
           </Page>
           </Route>
-          <Route path="/item/:id">
+          <Route path='/item/:id'>
           <Page>
             <ItemDetailContainer />
           </Page>
           </Route>
-          <Route path="*">
+          <Route path='/cart'>
+            <Page>
+              <Cart />
+            </Page>
+          </Route>
+          <Route path='*'>
             <NotFound />
           </Route>
         </Switch>

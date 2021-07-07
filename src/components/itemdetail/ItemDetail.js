@@ -1,14 +1,31 @@
 import React from 'react';
 import '../../index.css';
-import {ItemCount} from '../itemcount/ItemCount'
+import { ItemCount } from '../itemcount/ItemCount'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 export const ItemDetail = ({item}) => {
     const {titulo, precio, pictureURL, descripcion} = item
+    const [purchasedAmount, setPurchasedAmount]  = useState(0)
+
+    const onAdd = (quantityToAdd) => {
+
+        setPurchasedAmount(quantityToAdd.target.value)
+
+        document.getElementById("itemDetailBuy").style.display="none"
+        document.getElementById("itemDetailBought").style.display="block"
+        
+
+    }
+
+    console.log(purchasedAmount);
+
+
     return(
 
-<div className="flex flex-wrap overflow-hidden">
+<div className="mt-6 pl-16 pr-16 ml-auto mr-auto max-w-screen-xl box-content">
 
-<div className="w-1/2 overflow-hidden">
+<div className="w-28 box-border max-w-full pl-3 m-0 list-none" >
         <img src={pictureURL} alt="producto" />
 </div>
 
@@ -21,17 +38,18 @@ export const ItemDetail = ({item}) => {
     </div>
     <div className="block border-box leading-8 static">
         <input type="number" placeholder="Medida 1" />
-        <input type="number" placeholder="Medida 2" />
-        <input type="number" placeholder="Medida 3" />
-        <input type="number" placeholder="Medida 4" />
-        <input type="number" placeholder="Medida 5" />
     </div>
-    <div className="block border-box leading-8 static">
-    <ItemCount initial={1} stock={9} onAdd={() => {console.log('Items agregados al carrito')}}/>
+    <div className="block border-box leading-8 static" id="itemDetailBuy">
+    <ItemCount initial={1} stock={9} onAdd={onAdd}/>
     </div>
     <div className="block border-box leading-8 static">
         <span>{descripcion}</span>
     </div>
+    <div style={{display: "none"}} id="itemDetailBought" >
+        <p>Agregaste {purchasedAmount} Productos al carrito!</p>
+        <Link to={'/cart'}><button className="p-2 border-2 border-black rounded-md ml-2">Terminar Compra</button></Link>
+    </div>
+    
 </div>
 
 </div>

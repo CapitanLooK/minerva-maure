@@ -17,9 +17,7 @@ export const ItemDetailContainer = () => {
                 const getItem = () => {
                     return id ? ITEM.find((prod) => prod.id == id) : ITEM
                 }
-            
-                    const item = getItem()
-                    setItem(item)
+                const item = getItem()
                 resolve(item)
             }, 2000)
     

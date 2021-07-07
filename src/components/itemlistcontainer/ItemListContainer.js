@@ -17,11 +17,7 @@ export const ItemListContainer = () => {
                 const getItems = () => {
                     return id ? ITEMS.filter((item) => item.categoryId == id) : ITEMS
                 }
-        
-                
                 const items = getItems()
-                setItems(items)
-
                 resolve(items)
             }, 2000)
     
