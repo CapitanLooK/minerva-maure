@@ -7,10 +7,11 @@ import { useState } from 'react'
 export const ItemDetail = ({item}) => {
     const {titulo, precio, pictureURL, descripcion} = item
     const [purchasedAmount, setPurchasedAmount]  = useState(0)
-    const [isClicked, setIsClicked] = useState (false)
+    const [isClicked, setIsClicked] = useState ()
 
     const onAdd = (quantityToAdd) => {
         setPurchasedAmount(quantityToAdd.target.value)
+        setIsClicked(true)
     }
 
     console.log(purchasedAmount);
