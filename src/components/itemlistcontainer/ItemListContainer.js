@@ -4,6 +4,7 @@ import { ItemList } from '../itemlist/ItemList'
 import { useParams } from 'react-router-dom';
 import ITEMS from '../../data/items.json'
 import LoaderProducts from '../../img/cargandoProductos.gif'
+import { dataBase } from '../../firebase/firebase';
 
 export const ItemListContainer = () => {
     const {id} = useParams()

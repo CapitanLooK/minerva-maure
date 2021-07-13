@@ -4,6 +4,7 @@ import '../../index.css';
 import { ItemDetail } from '../itemdetail/ItemDetail'
 import ITEM from '../../data/items.json'
 import LoaderProduct from '../../img/cargandoProducto.gif'
+import { dataBase } from '../../firebase/firebase';
 
 export const ItemDetailContainer = () => {
     const {id} = useParams()
