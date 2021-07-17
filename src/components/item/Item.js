@@ -13,7 +13,7 @@ export const Item = ({item}) => {
         <div className="w-96">  
             <div className="shadow hover:shadow-lg transition duration-300 ease-in-out xl:mb-0 lg:mb-0 md:mb-0 mb-6 cursor-pointer group">
                 <div className="overflow-hidden relative">
-                <img className="w-full transition duration-700 ease-in-out group-hover:opacity-60" src={pictureURL} alt="product" />
+                <img className="w-full transition duration-700 ease-in-out group-hover:opacity-60" src={pictureURL} alt={`nombre de producto ${title}`} />
             </div>
             <div className="px-4 py-3 bg-white text-center">
                 <h1 className="text-gray-800 font-semibold text-lg hover:text-red-500 transition duration-300 ease-in-out">{title}</h1>

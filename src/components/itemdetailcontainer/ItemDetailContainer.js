@@ -33,7 +33,7 @@ export const ItemDetailContainer = () => {
 
     return(
         <>
-                {item.length === 0 ? <img src={LoaderProduct} className="bg-black w-screen h-screen"/> : <ItemDetail key={id} item={item}/>}
+                {item.length === 0 ? <img src={LoaderProduct} alt="cargando" className="bg-black w-screen h-screen"/> : <ItemDetail key={id} item={item}/>}
         </>
     )
 }
