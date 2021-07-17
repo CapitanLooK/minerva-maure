@@ -4,7 +4,6 @@ import '../../index.css';
 import { ItemDetail } from '../itemdetail/ItemDetail'
 import ITEM from '../../data/items.json'
 import LoaderProduct from '../../img/cargandoProducto.gif'
-import { dataBase } from '../../firebase/firebase';
 
 export const ItemDetailContainer = () => {
     const {id} = useParams()
@@ -16,7 +15,7 @@ export const ItemDetailContainer = () => {
 
             setTimeout(() => {
                 const getItem = () => {
-                    return id ? ITEM.find((prod) => prod.id == id) : ITEM
+                    return id ? ITEM.find((product) => product.id == id) : ITEM
                 }
                 const item = getItem()
                 resolve(item)

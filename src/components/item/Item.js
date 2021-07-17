@@ -3,7 +3,7 @@ import '../../index.css';
 import { Link } from 'react-router-dom'
 
 export const Item = ({item}) => {
-    const {id, titulo, precio, pictureURL, descripcion} = item
+    const {id, title, price, pictureURL, description} = item
         
     return(
 
@@ -16,13 +16,13 @@ export const Item = ({item}) => {
                 <img className="w-full transition duration-700 ease-in-out group-hover:opacity-60" src={pictureURL} alt="product" />
             </div>
             <div className="px-4 py-3 bg-white text-center">
-                <h1 className="text-gray-800 font-semibold text-lg hover:text-red-500 transition duration-300 ease-in-out">{titulo}</h1>
+                <h1 className="text-gray-800 font-semibold text-lg hover:text-red-500 transition duration-300 ease-in-out">{title}</h1>
                 <div className="flex py-2 justify-center">
-                    <p className="mr-2 text-xs text-gray-600">${precio}</p>
+                    <p className="mr-2 text-xs text-gray-600">${price}</p>
                 </div>
                 <div className="flex justify-center mt-2">
                     <div className="ml-2">
-                        <button className="">{descripcion}</button>
+                        <button className="">{description}</button>
                     </div>
                 </div>
             </div>

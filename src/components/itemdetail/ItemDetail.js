@@ -1,20 +1,21 @@
-import React from 'react';
 import '../../index.css';
 import { ItemCount } from '../itemcount/ItemCount'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import { useCartContext } from '../../context/CartContext';
 
 export const ItemDetail = ({item}) => {
-    const {titulo, precio, pictureURL, descripcion} = item
-    const [isClicked, setIsClicked] = useState ()
-
-    const onAdd = counter => {
+    
+    const [isClicked, setIsClicked] = useState (false)
+    const { addItem } = useCartContext
+    
+    const onAdd = (quantity) => {
         setIsClicked(true)
+        addItem(item, quantity)
     }
 
-    console.log();
 
-
+    const {id, title, price, pictureURL, description} = item
     return(
 
 <div className="mt-6 pl-16 pr-16 ml-auto mr-auto max-w-screen-xl box-content">
@@ -25,19 +26,19 @@ export const ItemDetail = ({item}) => {
 
 <div className="flex box-content static leading-8">
     <div className="block border-box leading-8 static">
-        <span>{titulo}</span>
+        <span>{title}</span>
     </div>
     <div className="block border-box leading-8 static">
-        <span>{precio}</span>
+        <span>{price}</span>
     </div>
     <div className="block border-box leading-8 static">
         <input type="number" placeholder="Medida 1" />
     </div>
     <div className="block border-box leading-8 static">
-    { isClicked ? <Link to={'/cart'}><button className="p-2 border-2 border-black rounded-md ml-2">Terminar Compra</button></Link> : <ItemCount initial={1} stock={9} onAdd={onAdd}/> }
+    { isClicked ? <NavLink className="p-2 border-2 border-black rounded-md ml-2" to={'/cart'}>Terminar Compra</NavLink> : <ItemCount initial={1} stock={9} onAdd={onAdd}/> }
     </div>
     <div className="block border-box leading-8 static">
-        <span>{descripcion}</span>
+        <span>{description}</span>
     </div>
     
 </div>
