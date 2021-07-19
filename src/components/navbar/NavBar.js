@@ -17,15 +17,15 @@ export const NavBar = () => {
                                 <NavLink to='/'><img className="h-20 w-20" src={logo} alt="Logo Minerva" /></NavLink>
                             </div>
                             <div className="ml-20 space-x-10 flex">
-                                <button><NavLink activeClassName="text-blue-400" className="text-white" exact to='/'>INICIO</NavLink></button>
-                                <button><NavLink activeClassName="text-blue-400" className="text-white" to='/category/lenceria'>LENCERIA</NavLink></button>
-                                <button><NavLink activeClassName="text-blue-400" className="text-white" to='/category/arneses'>ARNESES</NavLink></button>
-                                <button><NavLink activeClassName="text-blue-400" className="text-white" to='/category/ropa'>ROPA</NavLink></button>
-                                <button><NavLink activeClassName="text-blue-400" className="text-white" to='/category/accesorios'>ACCESORIOS</NavLink></button>
+                                <NavLink activeClassName="text-blue-400" className="text-white" exact to='/'>INICIO</NavLink>
+                                <NavLink activeClassName="text-blue-400" className="text-white" to='/category/lenceria'>LENCERIA</NavLink>
+                                <NavLink activeClassName="text-blue-400" className="text-white" to='/category/arneses'>ARNESES</NavLink>
+                                <NavLink activeClassName="text-blue-400" className="text-white" to='/category/ropa'>ROPA</NavLink>
+                                <NavLink activeClassName="text-blue-400" className="text-white" to='/category/accesorios'>ACCESORIOS</NavLink>
                             </div>
                             <div className="ml-4 flex items-center space-x-7 absolute right-20">
-                                <button><img className="h-6 w-6" src={search} alt="Boton de Busqueda" /></button>
-                                <button><img className="h-6 w-6" src={user} alt="Boton Panel de Usuario" /></button>
+                                <img className="h-6 w-6" src={search} alt="Boton de Busqueda" />
+                                <img className="h-6 w-6" src={user} alt="Boton Panel de Usuario" />
                                 <CartWidget />
                             </div>
                         </div>
