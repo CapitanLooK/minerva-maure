@@ -1,5 +1,5 @@
 
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 
 const CartContext = createContext()
 
@@ -7,6 +7,7 @@ const CartContext = createContext()
 export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [cartWidgetQuantity, setCartWidgetQuantity] = useState(0)
+    const [total, setTotal] = useState(0)
 
     const addItem = (item, quantity) =>{
         if (cart.length > 0) {
@@ -19,13 +20,11 @@ export const CartProvider = ({children}) => {
             }else setCart([...cart, {item, quantity}])
         }else {
             setCart([{item, quantity}])
-            setCartWidgetQuantity(cartWidgetQuantity + quantity)
         }
     }
 
-    const removeItem = (ID, quantity) =>{
+    const removeItem = (ID) =>{
         setCart(cart.filter(object => object.item.id !== ID))
-        setCartWidgetQuantity(cartWidgetQuantity - quantity)
     }
 
     console.log(cartWidgetQuantity);
@@ -39,8 +38,27 @@ export const CartProvider = ({children}) => {
         return cart.some((object) => object.item.id === id)
     }
 
+    const widgetItems = () =>{
+        let totalItems = 0
+        if(cart.length > 0){
+            cart.forEach((item) => totalItems += item.quantity)
+        }
+        setCartWidgetQuantity(totalItems)
+    }
+
+    useEffect(() => {widgetItems()}, [cart])
+
+    useEffect(
+        ()=>{
+            const nextTotal = cart.map(({item, quantity}) => item.price * quantity).reduce(
+                (cartTotal, currentItemTotal) => cartTotal + currentItemTotal, 0
+            )
+            setTotal(nextTotal)
+        }, [cart]
+    )
+    
     return (
-        <CartContext.Provider value={{cart, addItem, removeItem, clear, cartWidgetQuantity}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clear, cartWidgetQuantity, total}}>
             {children}
         </CartContext.Provider>)
 }

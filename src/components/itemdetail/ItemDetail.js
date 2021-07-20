@@ -32,9 +32,6 @@ export const ItemDetail = ({item}) => {
         <span>{price}</span>
     </div>
     <div className="block border-box leading-8 static">
-        <input type="number" placeholder="Medida 1" />
-    </div>
-    <div className="block border-box leading-8 static">
     { isClicked ? <NavLink className="p-2 border-2 border-black rounded-md ml-2" to={'/cart'}>Terminar Compra</NavLink> : <ItemCount initial={1} stock={9} onAdd={onAdd}/> }
     </div>
     <div className="block border-box leading-8 static">
