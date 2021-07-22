@@ -37,7 +37,7 @@ export const CartProvider = ({children}) => {
         return cart.some((object) => object.item.id === id)
     }
 
-    const widgetItems = () =>{
+    const widgetItems = (cart) =>{
         let totalItems = 0
         if(cart.length > 0){
             cart.forEach((item) => totalItems += item.quantity)
@@ -50,7 +50,7 @@ export const CartProvider = ({children}) => {
                 (cartTotal, currentItemTotal) => cartTotal + currentItemTotal, 0
             )
             setTotal(nextTotal)
-            widgetItems()
+            widgetItems(cart)
         }, [cart]
     )
     
