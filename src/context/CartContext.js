@@ -1,4 +1,3 @@
-
 import { createContext, useEffect, useState } from 'react'
 
 const CartContext = createContext()
@@ -45,15 +44,13 @@ export const CartProvider = ({children}) => {
         }
         setCartWidgetQuantity(totalItems)
     }
-
-    useEffect(() => {widgetItems()}, [cart])
-
     useEffect(
         ()=>{
             const nextTotal = cart.map(({item, quantity}) => item.price * quantity).reduce(
                 (cartTotal, currentItemTotal) => cartTotal + currentItemTotal, 0
             )
             setTotal(nextTotal)
+            widgetItems()
         }, [cart]
     )
     
