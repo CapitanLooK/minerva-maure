@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import '../../index.css'
 import logo from '../../img/logo.jpeg'
 import search from '../../svg/search.svg'
@@ -8,8 +8,8 @@ import { NavLink } from 'react-router-dom'
 
 export const NavBar = () => {
     return(
-        <div>
-            <nav className="flex bg-black static">
+        <Fragment>
+            <nav className="bg-black">
                 <div>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
@@ -32,7 +32,7 @@ export const NavBar = () => {
                     </div>
                 </div>
             </nav>
-        </div>
+        </Fragment>
     )
 }
 

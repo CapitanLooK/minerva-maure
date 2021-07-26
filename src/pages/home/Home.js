@@ -3,8 +3,8 @@ import '../../index.css'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Page } from '../page/Page'
 import { NotFound } from "../notfound/NotFound";
-import {ItemListContainer } from '../../pages/itemlistcontainer/ItemListContainer'
-import { ItemDetailContainer } from '../../pages/itemdetailcontainer/ItemDetailContainer'
+import {ItemListContainer } from '../itemlistcontainer/ItemListContainer'
+import { ItemDetailContainer } from '../itemdetailcontainer/ItemDetailContainer'
 import { Cart } from '../cart/Cart';
 
 export const Home = () => {

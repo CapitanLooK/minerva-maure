@@ -15,7 +15,7 @@ export const ItemDetail = ({item}) => {
     }
 
 
-    const {title, price, pictureURL, description} = item
+    const {title, price, pictureURL, description, stock} = item
     return(
 
 <div className="mt-6 pl-16 pr-16 ml-auto mr-auto max-w-screen-xl box-content">
@@ -29,10 +29,13 @@ export const ItemDetail = ({item}) => {
         <span>{title}</span>
     </div>
     <div className="block border-box leading-8 static">
+        <span>{stock}</span>
+    </div>
+    <div className="block border-box leading-8 static">
         <span>{price}</span>
     </div>
     <div className="block border-box leading-8 static">
-    { isClicked ? <NavLink className="p-2 border-2 border-black rounded-md ml-2" to={'/cart'}>Terminar Compra</NavLink> : <ItemCount initial={1} stock={9} onAdd={onAdd}/> }
+    { isClicked ? <NavLink className="p-2 border-2 border-black rounded-md ml-2" to={'/cart'}>Terminar Compra</NavLink> : <ItemCount initial={1} stock={stock} onAdd={onAdd}/> }
     </div>
     <div className="block border-box leading-8 static">
         <span>{description}</span>

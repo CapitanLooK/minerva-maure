@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import '../../index.css';
 import { ItemDetail } from '../../components/itemdetail/ItemDetail'
 import LoaderProduct from '../../img/cargandoProducto.gif'
-import { NotFound } from '../../pages/notfound/NotFound'
+import { NotFound } from '../notfound/NotFound'
 import { dataBase } from '../../firebase/firebase'
 
 
