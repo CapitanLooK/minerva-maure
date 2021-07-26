@@ -14,7 +14,7 @@ export const NavBar = () => {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
                             <div className="flex-shrink-0 ml-5">
-                                <NavLink to='/'><img className="h-20 w-20" src={logo} alt="Logo Minerva" /></NavLink>
+                                <NavLink to='/'><img className="h-20 w-20" src={logo} alt="Logo Minerva"/></NavLink>
                             </div>
                             <div className="ml-20 space-x-10 flex">
                                 <NavLink activeClassName="text-blue-400" className="text-white" exact to='/'>INICIO</NavLink>

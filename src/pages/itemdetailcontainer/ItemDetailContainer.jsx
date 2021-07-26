@@ -19,7 +19,6 @@ export const ItemDetailContainer = () => {
     
     itemList.get().then((doc) =>{
         if (!doc.exist) {
-            console.log('El item no esta en la db')
             setNotFound(true)
         }
     setItem({id: doc.id, ...doc.data()})})
