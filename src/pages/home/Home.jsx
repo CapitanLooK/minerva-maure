@@ -11,7 +11,7 @@ import '../../index.css'
 export const Home = () => {
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
         <Switch>
           <Route exact path="/">
             <Page>
