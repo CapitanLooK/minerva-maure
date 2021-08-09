@@ -44,10 +44,10 @@ export const Checkout = () => {
   }
 
   const purchase = buyer => {
+    const regexEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
     const firstEmail = buyerData.email
     const validateEmail = buyerData.checkEmail
-    const regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
-    const isEmail = regex.test(firstEmail)
+    const isEmail = regexEmail.test(firstEmail)
     const isMatch = firstEmail === validateEmail
     if (!isEmail) {
       swal('Ingrese una cuenta de mail valida');
