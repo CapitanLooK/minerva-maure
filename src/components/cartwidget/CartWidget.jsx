@@ -14,5 +14,3 @@ export const CartWidget = () => {
         </Fragment>
     )
 }
-
-export default CartWidget

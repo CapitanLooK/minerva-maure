@@ -1,16 +1,14 @@
 import { createContext, useState, useEffect } from 'react'
 
-
-
 const CartContext = createContext()
 
 
-export const CartProvider = ({children}) => {
+export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
     const [cartWidgetQuantity, setCartWidgetQuantity] = useState(0)
     const [total, setTotal] = useState(0)
-    
-    const addItem = (item, quantity) =>{
+
+    const addItem = (item, quantity) => {
         if (cart.length > 0) {
             if (isInCart(item.id)) {
                 let position = cart.findIndex(object => object.item.id === item.id)
@@ -18,30 +16,30 @@ export const CartProvider = ({children}) => {
                 newCart[position].quantity += quantity
                 setCart(newCart)
                 setCartWidgetQuantity(cartWidgetQuantity + quantity)
-            }else setCart([...cart, {item, quantity}])
-        }else {
-            setCart([{item, quantity}])
+            } else setCart([...cart, { item, quantity }])
+        } else {
+            setCart([{ item, quantity }])
         }
     }
 
-    const removeItem = (ID) =>{
+    const removeItem = (ID) => {
         setCart(cart.filter(object => object.item.id !== ID))
     }
 
     console.log(cartWidgetQuantity);
 
-    const clear = () =>{
+    const clear = () => {
         setCart([])
         setCartWidgetQuantity(0)
     }
-    
-    const isInCart = id =>{
+
+    const isInCart = id => {
         return cart.some((object) => object.item.id === id)
     }
 
-    const widgetItems = (cart) =>{
+    const widgetItems = (cart) => {
         let totalItems = 0
-        if(cart.length > 0){
+        if (cart.length > 0) {
             cart.forEach((item) => totalItems += item.quantity)
         }
         setCartWidgetQuantity(totalItems)
@@ -49,19 +47,19 @@ export const CartProvider = ({children}) => {
 
 
     useEffect(
-        ()=>{
-            const nextTotal = cart.map(({item, quantity}) => item.price * quantity).reduce(
+        () => {
+            const nextTotal = cart.map(({ item, quantity }) => item.price * quantity).reduce(
                 (cartTotal, currentItemTotal) => cartTotal + currentItemTotal, 0
-            ) 
+            )
             setTotal(nextTotal)
             widgetItems(cart)
         }, [cart]
     )
-    
+
     return (
-        <CartContext.Provider value={{cart, addItem, removeItem, clear, cartWidgetQuantity, total}}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clear, cartWidgetQuantity, total }}>
             {children}
         </CartContext.Provider>)
 }
 
-export {CartContext}
+export { CartContext }

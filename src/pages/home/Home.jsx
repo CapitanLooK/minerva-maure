@@ -1,11 +1,12 @@
 import React from 'react';
-import '../../index.css'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Page } from '../page/Page'
+import { Banner } from '../../components/banner/Banner'
 import { NotFound } from "../notfound/NotFound";
 import {ItemListContainer } from '../itemlistcontainer/ItemListContainer'
 import { ItemDetailContainer } from '../itemdetailcontainer/ItemDetailContainer'
 import { Cart } from '../cart/Cart';
+import '../../index.css'
 
 export const Home = () => {
 
@@ -14,6 +15,7 @@ export const Home = () => {
         <Switch>
           <Route exact path="/">
             <Page>
+              <Banner />
               <ItemListContainer />
             </Page>
           </Route>

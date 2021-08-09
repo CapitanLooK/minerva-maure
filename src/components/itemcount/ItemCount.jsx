@@ -1,6 +1,5 @@
-import React from 'react'
+import { useState } from 'react'
 import '../../index.css'
-import {useState} from 'react'
 
 export const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -24,15 +23,13 @@ export const ItemCount = ({stock, initial, onAdd}) => {
 
 
     return(
-        <div className=" bg-gray-50 md:w-48 md:h-22 mx-auto">
-            <div className="flex justify-center items-center pt-5">
-            <button className="p-2 border-2 border-black rounded-md" onClick={add}>+</button>
-            <span className="p-1 ml-5">{counter}</span>
-            <button className="p-2 ml-5 border-2 border-black rounded-md"onClick={subtract}>-</button>
-            <button className="p-2 border-2 border-black rounded-md ml-2" onClick={() => onAdd(counter)}>Agregar</button>
+        <div>
+            <div className="flex">
+                <button className="bg-indigo-600 hover:bg-indigo-500 focus:outline-none transition text-white uppercase px-6 py-3" onClick={add}>+</button>
+                <p className="px-2 mx-5 mt-3 text-l">{counter}</p>
+                <button className="bg-indigo-600 hover:bg-indigo-500 focus:outline-none transition text-white uppercase px-6 py-3"onClick={subtract}>-</button>
             </div>
+            <button className=" bg-indigo-600 hover:bg-indigo-500 focus:outline-none transition text-white uppercase mt-5 px-12 py-3" onClick={() => onAdd(counter)} disabled={stock === 0}>Agregar</button>
         </div>
     )
 }
-
-export default ItemCount

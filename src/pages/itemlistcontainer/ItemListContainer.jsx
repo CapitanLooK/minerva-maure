@@ -1,15 +1,9 @@
-import { Fragment, useEffect, useState } from 'react';
-import {
-    useParams
-} from 'react-router';
-import '../../index.css';
-import {
-    ItemList
-} from '../../components/itemlist/ItemList'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import { ItemList } from '../../components/itemlist/ItemList'
+import { dataBase } from '../../firebase/firebase'
 import LoaderProducts from '../../img/cargandoProductos.gif'
-import {
-    dataBase
-} from '../../firebase/firebase';
+import '../../index.css'
 
 export const ItemListContainer = () => {
     const {categoryId} = useParams()
@@ -25,21 +19,18 @@ export const ItemListContainer = () => {
                     setItems(querySnapshot.docs.map(doc => ({id: doc.id,...doc.data()
                     })))
                 })
-                .catch((error) => {
-                    console.log('error al buscar productos', error);
-                })
-                .finally(() => setIsloading(false))
-
-            
-            
+        .catch((error) => console.log('error al buscar productos', error))
+        .finally(() => setIsloading(false))
     }, [categoryId])
 
 
-    return ( <Fragment> {
+    return ( 
+    <div className="flex justify-center flex-wrap"> {
             isLoading ? < img src = {LoaderProducts}
             className = "bg-black w-screen h-screen"
-            alt = "cargando productos" / > : < ItemList items = {items}/>
-        } </Fragment>
+                alt = "cargando productos" / > : < ItemList items = {items}/>
+    } 
+    </div>
     )
 
 }

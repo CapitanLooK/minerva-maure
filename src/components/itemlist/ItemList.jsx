@@ -1,13 +1,14 @@
-import React from 'react';
-import '../../index.css';
+
+import { Fragment } from 'react';
 import { Item } from '../item/Item'
+import '../../index.css';
 
 export const ItemList = ({items}) => {
     return(
-            <div className="flex-1 flex-wrap flex-row">
+            <Fragment>
                 {items.map(item => (
                     <Item key={item.id} item={item}/>
                 ))}
-            </div>
+            </Fragment>
     )
 }
