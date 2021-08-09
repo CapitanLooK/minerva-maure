@@ -13,7 +13,7 @@ export const Home = () => {
   return (
     <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/minerva-maure">
             <Page>
               <Banner />
               <ItemListContainer />
