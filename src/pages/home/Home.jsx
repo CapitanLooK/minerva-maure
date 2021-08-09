@@ -11,7 +11,7 @@ import '../../index.css'
 export const Home = () => {
 
   return (
-    <Router>
+    <Router basename="/minerva-maure">
         <Switch>
           <Route exact path="/">
             <Page>

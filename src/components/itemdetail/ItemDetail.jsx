@@ -26,7 +26,7 @@ export const ItemDetail = ({ item }) => {
           <div className="text-indigo-500 ">
             <h3 className="uppercase text-black text-2xl font-medium">{title}</h3>
             <h3 className="text-2xl text-black mb-7">${price}</h3>
-            <p className="text-black">Stock: {stock > 0 ? <img src={okStock} className="h-5 w-5 inline mb-1" alt="en stock" /> : <img src={outOfStock} className="h-5 w-5 inline mb-1" alt="sin stock" />}</p>
+            <p className="text-black">Stock: {stock > 0 ? (<img src={okStock} className="h-5 w-5 inline mb-1" alt="en stock" />) : (<img src={outOfStock} className="h-5 w-5 inline mb-1" alt="sin stock"/>)}</p>
             <div className="flex gap-0.5 mt-4">
               {isClicked ? <NavLink className="bg-indigo-600 hover:bg-indigo-500 focus:outline-none transition text-white uppercase px-8 py-3" to={'/cart'}>Terminar Compra</NavLink> : <ItemCount initial={1} stock={stock} onAdd={onAdd} />}
             </div>
